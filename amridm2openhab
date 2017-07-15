@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 #
 # amridm2openhab
-#
+# modified for Home Assistant, July 15th 
 # Description
 #
 # Using an inexpensive rtl-sdr dongle, it's possible to listen for signals 
@@ -59,12 +59,12 @@ use constant DEBUG => 0;
 
 ## Configuration
 my $port          = 1234;                       # port for rtl_tcp to listen on
-my $address       = "192.168.1.100";            # bind address for rtl_tcp. 
+my $address       = "10.0.0.8";            # bind address for rtl_tcp. 
                                                 # Can be 127.0.0.1 or actual address of your server
 my $dongleSerial  = "00000011";                 # serialnumber set by rtl_eeprom
-my $rtltcp        = "/usr/local/bin/rtl_tcp";   # path to rtl_tcp
-my $rtlamr        = "/opt/gopath/bin/rtlamr";   # path to rtlamr
-my $rtleeprom     = "/usr/local/bin/rtl_eeprom" # path to rtl_eeprom
+my $rtltcp        = "/usr/share/go/src/pkg/github.com/bemasher/rtltcp";   # path to rtl_tcp
+my $rtlamr        = "/usr/share/go/src/pkg/github.com/bemasher/rtlamr";   # path to rtlamr
+my $rtleeprom     = "/usr/bin/rtl_eeprom" # path to rtl_eeprom
 my $meterSerial   = "5XXXXXX3";                 # meter serial number, likely on the front of your meter
                                                 # used to filter results to just your meter
 my $openhabServer = "http://username:password\@127.0.0.1:8080"; # URL of OpenHAB server. 
